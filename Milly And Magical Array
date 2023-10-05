@@ -1,4 +1,32 @@
 //By Raja Bhavesh
 Question Link:- https://www.hackerearth.com/problem/algorithm/milly-and-magical-array-3/
 Difficulty Level:- Easy
+C++ Code given below
+#include <iostream>
+using namespace std;
+int main() {
+	long long int t;
+	cin>>t;
+	while(t--){
+		long long int n,x;
+		cin>>n>>x;
+		long long int arr[n];
+		for(long long int i=0;i<n;i++){
+			cin>>arr[i];
+		}
+		long long int count=0;
+		for(long long int i=1;i<n;i++){
+			if(arr[i]>arr[i-1]){
 
+			}
+			else{
+				long long int diff=arr[i-1]-arr[i];
+				long long int z=(diff/x)+1;
+				count+=z;
+				arr[i]=arr[i]+z*x;
+			}
+		}
+		cout<<count<<endl;
+	}
+	
+}
