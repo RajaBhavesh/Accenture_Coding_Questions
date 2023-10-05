@@ -1,0 +1,40 @@
+//by Raja Bhavesh
+Difficulty Level- Easy
+Question Link-https://practice.geeksforgeeks.org/problems/find-last-digit-of-ab-for-large-numbers1936/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+C++ Code
+int find(int n,string s){
+        int exp=0;
+        for(int i=0;i<s.size();i++){
+            exp=(exp*10+s[i]-'0')%4;
+        }
+        return exp;
+    }
+  
+  
+  
+    int getLastDigit(string a, string b) {
+        // code here
+        
+        int lastDigOfA=a[a.size()-1]-'0';//this line used to find the last digit of string
+        if(lastDigOfA==0){
+            return 0;
+        }
+        if(b.size()==1&&b[b.size()-1]=='0'){
+            return 1;
+        }
+        int exp=find(4,b); //4 is used here beacuse at every interval of 4 last digit repeats itself
+        // like let's take an example
+        //7*7=49
+        //49*7=343
+        //344*7=2401
+        //2401*7=16807  clear;y 7 repeats after 4 times multipliction
+        
+        if(exp==0){
+            int ans=pow(lastDigOfA,4);
+            return ans%10;
+        }
+        int ans=pow(lastDigOfA,exp%4);
+            return ans%10;
+        
+    }
