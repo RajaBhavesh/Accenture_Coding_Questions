@@ -1,6 +1,6 @@
 //by Raja Bhavesh
 Difficulty Level- Easy
-Question Link- https://leetcode.com/problems/check-if-it-is-a-straight-line/submissions/
+Question Link- https://leetcode.com/problems/check-if-it-is-a-straight-line/description/
 
 C++ Code
  bool checkStraightLine(vector<vector<int>>& coordinates) {
