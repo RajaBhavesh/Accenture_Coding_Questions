@@ -1,0 +1,27 @@
+//by Raja Bhavesh
+Difficulty Level- Easy
+Question Link- https://leetcode.com/problems/check-if-it-is-a-straight-line/submissions/
+
+C++ Code
+ bool checkStraightLine(vector<vector<int>>& coordinates) {
+        //slope finding
+        if(coordinates[1][0]-coordinates[0][0]==0){
+            for(int i=0;i<coordinates.size();i++){
+                if(coordinates[0][0]!=coordinates[i][0]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        float m=(coordinates[1][1]*1.0-coordinates[0][1]*1.0)/(coordinates[1][0]*1.0-coordinates[0][0]*1.0);
+        int y;
+        int x;
+        for(int i=2;i<coordinates.size();i++){
+            y=coordinates[i][1];
+            x=coordinates[i][0];
+            if(y-coordinates[1][1]!=m*(x-coordinates[1][0])){
+                return false;
+            }
+        }
+        return true;
+    }
