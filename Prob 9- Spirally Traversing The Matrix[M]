@@ -1,0 +1,47 @@
+//by Raja Bhavesh
+//Difficulty Level-> Medium
+//Question Link-> https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+C++ Code:-
+//Time Complexity-> O(R*C)
+//Space Complexity-> O(R*C)
+vector<int> spirallyTraverse(vector<vector<int> > matrix, int r, int c) 
+    {
+        //total count of the element in the 2D array
+        int totalelement=r*c;
+        int count=0;// it counts the number of element stored currently in the vector ans;
+        vector<int>ans;
+        //we have initiliazed the boundary condiotin that are useful in spirally traversing
+        int startRow=0;
+        int endRow=r-1;
+        int startCol=0;
+        int endCol=c-1;
+        
+        while(count<totalelement){
+            // traverse the horizontal upper row
+            for(int i=startCol;i<=endCol&&count<totalelement;i++){
+                ans.push_back(matrix[startRow][i]);
+                count++;
+            }
+            startRow++;
+            //traverse the vertically right col
+            for(int i=startRow;i<=endRow&&count<totalelement;i++){
+                ans.push_back(matrix[i][endCol]);
+                count++;
+            }
+            endCol--;
+            //traverse the horizontal lower row from right to left
+            for(int i=endCol;i>=startCol&&count<totalelement;i--){
+                ans.push_back(matrix[endRow][i]);
+                count++;
+            }
+            endRow--;
+            //traverse the vertical left col from down to up
+            for(int i=endRow;i>=startRow&&count<totalelement;i--){
+                ans.push_back(matrix[i][startCol]);
+                count++;
+            }
+            startCol++;
+        }
+        return ans;
+    }
