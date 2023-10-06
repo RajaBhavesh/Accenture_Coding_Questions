@@ -1,0 +1,28 @@
+//by Raja Bhavesh
+//Difficulty Level-> Easy
+//Question Link-> https://practice.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1
+
+C++ Code
+
+char getMaxOccuringChar(string str)
+    {
+        // Your code here
+        int arr[27]={0};   // we have initialised an array of size 27 (you can also make it to 26) that is used to store the frequency of character 
+        for(int i=0;i<str.size();i++){
+            int z=str[i]-'a'+1;
+            arr[z]++;            
+        }                            // by this loop traversing we have updated our arr to an array that contains frequency of character 
+        int maxi=INT_MIN;            //and its index denote a pattern liks 1-> for a
+        for(int i=0;i<27;i++){       // -> for b etc.
+            maxi=max(maxi,arr[i]);
+        }                             // here we have found out the maximim occuring value in array 
+        int ans=-1;
+        for(int i=0;i<27;i++){
+            if(arr[i]==maxi){
+                ans=i;
+                break;
+            }
+        }                            // then we have checked the smallest lexigrophical character that have same no. of freqency that of max value and we have stored that index
+        char ch=ans-1+'a';            // then according to the index we have mapped it to respectice character and at last we returned it;
+        return ch;
+    }
