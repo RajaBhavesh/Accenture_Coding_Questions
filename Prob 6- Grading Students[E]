@@ -1,0 +1,24 @@
+//by Raja Bhavesh
+//Difficulty Level- Easy
+//Question Link-> https://www.hackerrank.com/challenges/grading/problem
+
+C++ Code
+vector<int> gradingStudents(vector<int> grades) {
+    vector<int>ans;  //created a vector of int variable to store the updated marks by the professor using constraints
+    for(int i=0;i<grades.size();i++){
+        if(grades[i]%5==0||grades[i]<38){  // as it is mentioned that if score is less than 38 then no need to update the  marks 
+            ans.push_back(grades[i]);
+        }
+        else{
+            int z=grades[i]/5;
+            int zz=(z+1)*5-grades[i];      // now here we have to go for chaecking the differenece between the current grade and the nest multiple of 5 to this grade
+            if(zz<3){                     
+                ans.push_back((z+1)*5);    // then if this diff is greater than or equal to  no updation would occur while if it less than 3 then rounding to next multiple of 5 to be done.
+            }
+            else{
+                ans.push_back(grades[i]);
+            }
+        }
+    }
+    return ans;    // returning the ans vector.
+}
