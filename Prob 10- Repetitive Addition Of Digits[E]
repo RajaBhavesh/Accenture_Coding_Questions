@@ -1,0 +1,54 @@
+//by Raja Bhavesh
+//Difficulty Level-> Easy
+//Question Link-> https://practice.geeksforgeeks.org/problems/repetitive-addition-of-digits2221/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+//Method 1->
+//Here we are going to use the brute force approach. Like we start with the number and do the required operation of founding the digit sum repeatedly until single digit condition met.
+
+//C++ Code:-
+//Time Complexity-> O(log N)
+//Space Complexity-> O(1)
+
+    long long int sum(long long int N){
+        long long int sumo=0;
+        while(N){
+            long long int z=N%10;
+            sumo+=z;
+            N=N/10;
+        }
+        return sumo;
+    }
+    int singleDigit(long long N)
+    {
+        // Write Your Code here
+        while(true){
+            if(N%10==N){  //this line indicates that N is single digit
+                return N;
+                
+            }
+            N=sum(N);
+        }
+    }
+
+//Method 2->
+//If we carefully observe the digit sum then we find something interesting and that is after every multiple of 9 digit sum repeas itself and again goes from 1 to 9 and then again......
+//Let me explain it using examples->    For N<=9 , dig sum is directly equal to N. But now say N=10; then sum=1+0=1 which is same value as if N=1;
+// similarly say N=26; then N=2+6=8;
+//and by our approach that is using multiple of 9; Nearest multiple is 18(not 7 as it is greater than 26) so from here also 19 is same as 1, 20 is as 2......6 is same as 26%9=8 or 26-18=8;  
+
+C++ Code-> 
+//Time  Complexity-> O(1)
+//Space Complexity-> O(1)
+
+ int singleDigit(long long N)
+    {
+       if(N%9==0){
+           return 9;
+       }
+       else{
+           return N%9;
+       }
+    }
+
+
+Thanks!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
