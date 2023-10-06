@@ -1,0 +1,49 @@
+//by Raja Bhavesh
+//Difficulty-> Easy
+//Question Link-> https://practice.geeksforgeeks.org/problems/perfect-numbers3207/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+//Method 1->
+//In this method, we are basically traversing all the numbers from 1 to N-1 and check what are those numbers that are proper divisor of N. After that all those numbers are added together and returned.
+//Below is the C++ Code
+//Time Complexity-> O(N)
+//Space Complexity-> O(1)
+ int isPerfectNumber(long long N) {
+        // code here
+        int sum=0;
+        for(int i=1;i<N;i++){
+            if(N%i==0){
+                sum+=i;
+            }
+        }
+        if(sum==N){
+            return 1;
+        }
+        return 0;
+    }
+
+
+//Method 2->
+//It is an efficient approach. In this approach, we are not going to traverse the whole range of 1 to N-1 instead of we search in range of 1 to sqrt(N).
+//As say if i have found i is proper divisor of N-> this implies that N/i is also proper divisor of N. This logic is being used in the below code
+//Time Complexity-> O(sqrt(N))
+//Space Complexity-> O(1)
+int isPerfectNumber(long long N) {
+        // code here
+        long long int sum=1;
+        if(N==1){
+            return 0;
+        }
+        for(long long int i=2;i<=sqrt(N);i++){
+            if(N%i==0){
+            sum+=i+N/i;
+            }
+        }
+        if(sum==N){
+            return 1;
+        }
+
+
+
+Thanks!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return 0;
+    }
