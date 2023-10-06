@@ -1,0 +1,26 @@
+//by Raja Bhavesh
+//Difficulty Level-> Easy
+//Question Link-> https://www.geeksforgeeks.org/program-to-print-collatz-sequence/
+
+
+C++ Code with explanation:-
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;  // this value is given to us
+    cout<<n<<" "; // as first term always equal to n 
+    while(n!=1){
+        if(n%2==0){    
+            cout<<n/2<<" ";
+            n=n/2;// as in Collatz Sequence if n is even it will updated to n/2 
+        }
+        else{
+            cout<<(3*n+1)<< " "; 
+            n=3*n+1;// and if it is odd then updated to 3*n+1
+        }
+    }
+  return 0;
+}
